@@ -10,6 +10,9 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-gold: #d4af37;
+  --color-silver: #c0c0c0;
+  --color-copper: #b87333;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,6 +20,78 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+@keyframes glimmer {
+  0% { transform: translate(-100%, -100%) rotate(45deg); }
+  100% { transform: translate(100%, 100%) rotate(45deg); }
+}
+
+.card-fan-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 200px;
+  position: relative;
+  width: 100%;
+}
+
+.card-fan-item {
+  position: absolute;
+  bottom: 0;
+  transform-origin: bottom center;
+  transition: all 0.3s ease;
+}
+
+.card-fan-item:hover {
+  z-index: 50 !important;
+  transform: translateY(-40px) scale(1.1) rotate(0deg) !important;
+}
+
+.stat-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #555;
+  background: radial-gradient(circle at 30% 30%, #444, #111);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 2px 5px rgba(255,255,255,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 900;
+  font-size: 16px;
+  position: relative;
+}
+
+.stat-circle::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  pointer-events: none;
+}
+
+.dominion-pill-btn {
+  background: linear-gradient(to bottom, #7a9e6b, #4a6b40);
+  border: 2px solid #2d4526;
+  border-radius: 50px;
+  box-shadow: 0 4px 0 #1e2e1a, 0 10px 20px rgba(0,0,0,0.4);
+  color: #fff;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  transition: all 0.1s;
+}
+
+.dominion-pill-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #1e2e1a, 0 5px 10px rgba(0,0,0,0.4);
+}
+
+.dominion-card {
+  perspective: 1000px;
 }
 
 body {

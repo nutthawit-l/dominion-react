@@ -1,0 +1,20 @@
+{
+  "name": "Dominion Game Dev Container",
+  "build": {
+    "dockerfile": "../Containerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "dsznajder.es7-react-js-snippets"
+      ]
+    }
+  },
+  "forwardPorts": [3000, 9229],
+  "postCreateCommand": "cd dominion && pnpm install",
+  "remoteUser": "root"
+}
